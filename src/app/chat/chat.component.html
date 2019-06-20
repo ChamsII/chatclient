@@ -1,0 +1,57 @@
+<button mat-fab (click)="onClickUserInfo()">
+  <mat-icon>edit</mat-icon>
+</button>
+<div class="chat-container">
+  <mat-card class="main-card">
+
+
+    <mat-list class="chat-list">
+      <mat-list-item *ngFor="let message of messages" [ngClass]="[(message.action === undefined && message.from.id === user.id)? 'chat-list-item': (message.action === undefined && message.from.id !== user.id)? 'chat-list-item2' : 'chat-full-width']">
+        
+          <img mat-list-avatar *ngIf="message.action === undefined" [src]="message.from.avatar" >
+          <h4 mat-line *ngIf="message.action === undefined">
+            <b>{{message.from.name}}</b>
+          </h4>
+          <p mat-line *ngIf="message.action === undefined">
+            <span> {{message.content}} </span>
+          </p>
+
+        <p mat-line *ngIf="message.action === action.JOINED" class="chat-notification">
+          <span> <b>{{message.from.name}}</b> a rejoint la conversation. </span>
+        </p>
+        <p mat-line *ngIf="message.action === action.RENAME" class="chat-notification">
+          <span> <b>{{message.content.previousUsername}}</b> a modifié son nom pour <b>{{message.content.username}}</b> </span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="chat-footer-container">
+      <mat-icon>message</mat-icon>
+      <mat-form-field class="chat-input">
+        <input matInput 
+               #inputMessage 
+               maxlength="330" 
+               placeholder="Entrer votre message" 
+               [(ngModel)]="messageContent" 
+               (keyup.enter)="sendMessage(messageContent)">
+        <mat-hint align="end">{{inputMessage.value.length}}/300</mat-hint>
+      </mat-form-field>
+
+      <div class="footerCopyRight">
+
+        <div class="row">
+          <div class="col-12 chatapp">
+            <!-- Chat App - Une application de conversation interne pour <b>Nuktwa Fm </b> -->
+           Chat App - Une application de conversation pour les Fans de <b>Nuktwa Fm </b>
+          </div>
+          <div class="col-12 copyright">
+            Création {{ yearCopyright }}, by <a href="https://hachamco.fr" target="_blank" > Hacham & Co </a> tous droits reservés. E-mail : ali.chamsoudine@hachamco.fr - Tel : (+33) 06 58 74 50 24 - Web : www.hachamco.fr  <img src="http://hachamco.fr/img/logo.png" width="10%" >
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </mat-card>
+</div>

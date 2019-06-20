@@ -1,0 +1,8 @@
+.mat-dialog-content {
+    overflow: hidden;
+    min-width: 500px !important;
+    width: 100%;
+}
+.mat-form-field {
+    width: 90% !important;
+}

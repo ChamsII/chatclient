@@ -6,8 +6,7 @@ import { Event } from '../model/event';
 
 import * as socketIo from 'socket.io-client';
 
-//const SERVER_URL = 'http://localhost:9876';
-var SERVER_URL = 'http://hstudio.ovh:9878';
+const SERVER_URL = 'http://localhost:9876';
 
 
 @Injectable()

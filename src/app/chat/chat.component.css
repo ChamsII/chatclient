@@ -25,11 +25,12 @@
     left: 25px;
     right: 25px;
     bottom: 170px;
+    white-space: normal !important;
 }
 
 .chat-list-item {
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
     border-radius: 5px;
     background-color: #E8EAF6;
     width: 60%;
@@ -37,8 +38,8 @@
 }
 
 .chat-list-item2 {
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
     border-radius: 5px;
     background-color: #dddddd;
     width: 60%;
@@ -48,8 +49,8 @@
 .chat-full-width {
     width: 100% !important;
     clear: both;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
 }
 
 .main-card {
@@ -84,9 +85,17 @@
     font-weight: bold;
 }
 
+::ng-deep .mat-list .mat-list-item .mat-line{
+    white-space: normal !important;
+}
+
 @media screen and (max-width: 800px) {
     .footerCopyRight {
       display:none;
       clear:both;
+    }
+
+    ::ng-deep .mat-list .mat-list-item .mat-line {
+        margin:5px 0px 5px 0px !important;
     }
 }
